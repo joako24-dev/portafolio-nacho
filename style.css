@@ -1,23 +1,138 @@
+:root{
+--violeta:#8b5cf6;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:
+radial-gradient(circle at 20% 30%, rgba(139,92,246,0.25), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(139,92,246,0.2), transparent 40%),
+linear-gradient(180deg,#050010,#14002e);
+
+color:white;
+
+}
+
+/* CONTENIDO */
+
+.contenido{
+
+text-align:center;
+margin-top:150px;
+position:relative;
+z-index:2;
+
+}
+
+h1{
+
+font-size:60px;
+color:var(--violeta);
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:20px;
+color:#d4d4d4;
+
+}
+
+/* FILM STRIP */
+
+.film-strip{
+
+position:absolute;
+top:40%;
+left:0;
+
+width:100%;
+height:80px;
+
+background:
+repeating-linear-gradient(
+90deg,
+#000 0px,
+#000 40px,
+#111 40px,
+#111 60px
+);
+
+opacity:0.1;
+
+transform:rotate(-15deg);
+
+}
+
+/* ICONOS */
+
+.icon{
+
+position:absolute;
+font-size:60px;
+color:var(--violeta);
+
+opacity:0.08;
+
+animation:flotar 8s ease-in-out infinite;
+
+}
+
+/* POSICIONES TIJERAS */
+
+.s1{ top:15%; left:10%; }
+.s2{ top:70%; left:20%; }
+.s3{ bottom:10%; right:25%; }
+.s4{ top:35%; right:40%; }
+
+/* POSICIONES CLAQUETA */
+
+.c1{ top:20%; right:10%; }
+.c2{ bottom:25%; left:35%; }
+.c3{ top:60%; right:30%; }
+.c4{ top:10%; left:45%; }
+
+/* POSICIONES TIMELINE */
+
+.t1{ bottom:15%; left:60%; }
+.t2{ top:50%; right:5%; }
+.t3{ top:75%; left:50%; }
+.t4{ top:30%; left:25%; }
+
+@keyframes flotar{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+
+}
+
+/* PARTICULAS */
+
+canvas{
+
+position:fixed;
+top:0;
+left:0;
+z-index:1;
+
+}
 :root {
     --negro: #0b0b0f;
-    --violeta: #7b3fe4;
-    --violeta-claro: #9d6bff;
+    --violeta2: #7b3fe4;
+    --violeta2-claro: #9d6bff;
     --blanco: #ffffff;
     --gris: #bdbdbd;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: var(--negro);
-    color: var(--blanco);
-    line-height: 1.6;
-}
 
 .hero {
     padding: 80px 10%;
@@ -29,23 +144,26 @@ body {
 }
 
 .hero-text {
-    max-width: 600px;
+    max-width: 550px;
 }
 
 .hero-text h1 {
+    text-align: left;
     font-size: 42px;
-    color: var(--violeta-claro);
+    color: var(--violeta2-claro);
     margin-bottom: 20px;
 }
 
 .hero-text p {
+    text-align: left;
     color: var(--gris);
 }
 
 .logo {
-    width: 220px;
-    height: 220px;
-    border: 2px dashed var(--violeta);
+    width: 350px;
+    height: 350px;
+    border: 2px solid var(--violeta2);
+    box-shadow: 5px 5px 12px var(--violeta2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,16 +175,16 @@ section {
 }
 
 section h2 {
-    text-align: center;
-    color: var(--violeta);
+    text-align: left;
+    color: var(--violeta2);
     font-size: 32px;
     margin-bottom: 40px;
 }
 
 .about-section p {
     max-width: 800px;
-    margin: auto;
-    text-align: center;
+    margin: 20px;
+    text-align: left;
     color: var(--gris);
 }
 
@@ -86,13 +204,12 @@ section h2 {
 .video-card video {
     width: 100%;
 }
-
 .video-footer {
     padding: 20px;
 }
 
 .video-footer h3 {
-    color: var(--violeta-claro);
+    color: var(--violeta2-claro);
     margin-bottom: 10px;
 }
 
@@ -101,9 +218,42 @@ section h2 {
     font-size: 14px;
 }
 
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+.contact-info h3 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+.contact-info p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-color);
+}
+
 footer {
     background-color: #08080c;
-    padding: 40px 10%;
+    padding: 40px 0;
+}
+
+.footer-content{
+    width: 80%;
+    margin: auto;
     text-align: center;
     color: var(--gris);
     font-size: 14px;
